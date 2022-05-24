@@ -1,0 +1,18 @@
+.layout .logo-warp {
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+  .logo {
+    width: 50%;
+    height: 50px;
+    background-image: url("../static/img/logo.jpg");
+    background-size: cover;
+  }
+}
+
+.site-layout-background {
+  background: #fff;
+}
