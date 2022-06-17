@@ -5,7 +5,6 @@ import n1s3_1 from "@/views/n1/s3/n1s3_1";
 import n2s1_1 from "@/views/n2/s1/n2s1_1";
 import n2s2_1 from "@/views/n2/s2/n2s2_1";
 import n3s1_1 from "@/views/n3/s1/n3s1_1";
-
 const router = [
   {
     path: "/n1s1_1",

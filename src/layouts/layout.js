@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Layout, Menu, Dropdown } from "antd";
-import { HashRouter, Route, Redirect, Switch, Link } from "react-router-dom";
+import { HashRouter,Route, Redirect, Switch, Link } from "react-router-dom";
 import routers from "@/router/index";
-import NotFound from "../views/NotFound";
-import { menuList } from "@/menu/index";
+import { menuList } from "./menu";
 import { MenuUnfoldOutlined, MenuFoldOutlined, HomeOutlined, SettingOutlined, LogoutOutlined, CaretDownOutlined } from "@ant-design/icons";
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -37,13 +36,14 @@ export default function MyLayout() {
   }, [headerKey]);
   return (
     <HashRouter>
+
       <Layout className='layout'>
         <Sider collapsible={true} collapsed={collapsed} width={menuWidth} className='site-layout-background' style={{ height: "100vh", overflowY: "auto", zIndex: 999 }}>
           <div className='logo-warp' style={{ float: "left", display: "flex", justifyContent: "center", alignItems: "center", width: "100%", margin: "10px 0" }}>
-            <img className='logo' alt='logo' src={require("../static/img/logo.jpg")} style={{ width: "50%", height: "50px" }} />
+            <img className='logo' alt='logo' src={require("../static/img/logo.jpg")} style={{ width: "50%", height: "50px" ,objectFit:'scale-down'}} />
           </div>
           {/* 左侧边栏 */}
-          <Menu theme='dark' mode='inline' defaultOpenKeys={["sub1"]} defaultSelectedKeys={["11"]} style={{ height: "100%", borderRight: 0 }}>
+          <Menu theme='dark' mode='inline' defaultOpenKeys={["1-1"]} defaultSelectedKeys={["n1s1_1"]} style={{ height: "100%", borderRight: 0 }}>
             {menuList[menuIndex].childList.map((item, index) => {
               if (item.childList && item.childList.length > 0)
                 return (
@@ -99,14 +99,13 @@ export default function MyLayout() {
                   return <Route key={item.path} path={item.path} component={item.component} exact />;
                 }
               })}
-              <Route path='/404' component={NotFound}></Route>
-              <Route path='/404' component={NotFound}></Route>
-              <Redirect path='/' to='/n1s1'></Redirect>
+              <Redirect path='/' to='/n1s1_1' exact></Redirect>
               <Redirect path='*' to='/404'></Redirect>
             </Switch>
           </Content>
         </Layout>
       </Layout>
     </HashRouter>
+
   );
 }

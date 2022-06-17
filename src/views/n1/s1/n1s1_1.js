@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 export default function index() {
-  return <div>n1s1_1</div>;
+  return <div> <Button type="primary">Primary</Button></div>;
 }

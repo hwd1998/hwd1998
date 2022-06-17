@@ -1,5 +1,4 @@
 import { UserOutlined, LaptopOutlined, NotificationOutlined, MenuUnfoldOutlined, MenuFoldOutlined, DownOutlined } from "@ant-design/icons";
-
 const nav1 = [
   { name: "nav1-sub1", key: '1-1',icon:<UserOutlined/>, childList: [{ name: "n1s1-1",key:'n1s1_1',path:'n1s1_1' }, { name: "n1s1_2",key:'n1s1_2',path:'n1s1_2' }] },
   { name: "nav1-sub2", key: '1-2',path:'n1s2_1',icon:<LaptopOutlined/>},
@@ -12,7 +11,6 @@ const nav2 = [
 const nav3 = [
   { name: "nav3-sub1", key: 'n3s1_1',path:'n3s1_1' ,icon:<DownOutlined/>},
 ];
-
 const menuList = [
   { name: "nav 1", key: "1", childList: nav1 },
   { name: "nav 2", key: "2", childList: nav2 },
