@@ -36,7 +36,6 @@ export default function MyLayout() {
   }, [headerKey]);
   return (
     <HashRouter>
-
       <Layout className='layout'>
         <Sider collapsible={true} collapsed={collapsed} width={menuWidth} className='site-layout-background' style={{ height: "100vh", overflowY: "auto", zIndex: 999 }}>
           <div className='logo-warp' style={{ float: "left", display: "flex", justifyContent: "center", alignItems: "center", width: "100%", margin: "10px 0" }}>
@@ -106,6 +105,5 @@ export default function MyLayout() {
         </Layout>
       </Layout>
     </HashRouter>
-
   );
 }
