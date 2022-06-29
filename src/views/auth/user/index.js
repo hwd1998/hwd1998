@@ -3,13 +3,14 @@
  * @Description:
  * @FilePath: \my-react-crm\src\views\auth\user\index.js
  */
-import { Space, Table, Tag, Button } from "antd";
+import { Space, Table,  Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Edit from "./components/edit";
+import { getlist } from "@/api/auth/user";
 
 const columns = [
-  { title: "账号", dataIndex: "account", key: "account", render: (text) => <Button type='link'>{text}</Button> },
+  { title: "账号", dataIndex: "username", key: "username", render: (text) => <Button type='link'>{text}</Button> },
   { title: "密码", dataIndex: "password", key: "password" },
   { title: "账号类型", dataIndex: "type", key: "type" },
   { title: "账号状态", key: "state", dataIndex: "state" },
@@ -27,25 +28,36 @@ const columns = [
     ),
   },
 ];
-const data = [];
 
 const App = () => {
   const [ifShowEdit, setifShowEdit] = useState(false);
-  let edit = (_, type = "add") => {
-    setifShowEdit(true);
-  };
-  let close = (refresh=false) => {
-    if(refresh){}
-    setifShowEdit(false);
-  };
+  const [list, setlist] = useState([]);
+  useEffect(() => {
+    getlist().then((res) => setlist(res.data.data));
+  }, []);
+
   return (
     <>
-      <Button type='primary' onClick={edit} style={{ marginBottom: "10px" }}>
+      <Button
+        type='primary'
+        onClick={() => {
+          setifShowEdit(true);
+        }}
+        style={{ marginBottom: "10px" }}>
         <PlusOutlined />
         添加账号
       </Button>
-      <Edit close={close} ifShowEdit={ifShowEdit}></Edit>
-      <Table columns={columns} dataSource={data} />;
+      <>
+        {ifShowEdit ? (
+          <Edit
+            close={() => {
+              setifShowEdit(false);
+            }}
+            id='-1'
+            ifShowEdit={ifShowEdit}></Edit>
+        ) : null}
+      </>
+      <Table columns={columns} dataSource={list} rowKey={(record) => record._id} />;
     </>
   );
 };

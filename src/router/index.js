@@ -1,45 +1,58 @@
-import n1s1_1 from "@/views/n1/s1/n1s1_1";
-import n1s1_2 from "@/views/n1/s1/n1s1_2";
-import n1s2_1 from "@/views/n1/s2/n1s2_1";
-import n1s3_1 from "@/views/n1/s3/n1s3_1";
+import { UserOutlined, LaptopOutlined, NotificationOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
+import memberList from "@/views/doudian/memberManage/memberList";
+import operation from "@/views/doudian/memberManage/operation";
+import tiktokList from "@/views/doudian/tiktokList/index";
 import user from "@/views/auth/user/index";
-import n2s2_1 from "@/views/auth/s2/n2s2_1";
-import n3s1_1 from "@/views/n3/s1/n3s1_1";
+import menu from "@/views/auth/menu/index";
 const router = [
   {
-    path: "/n1s1_1",
-    name: "n1s1_1",
-    component: n1s1_1,
+    path: "/doudian",
+    name: "抖店模块",
+    icon:<NotificationOutlined/>,
+    children: [
+      {
+        path: "/tiktokList",
+        name: "抖店列表",
+        icon:<LaptopOutlined/>,
+        component: tiktokList,
+      },
+      {
+        path: "/memberManage",
+        name: "会员管理",
+        icon:<UserOutlined/>,
+        children: [
+          {
+            path: "/operation",
+            name: "会员运营",
+            component: operation,
+          },
+          {
+            path: "/memberList",
+            name: "会员列表",
+            component: memberList,
+          },
+        ],
+      },
+    ],
   },
   {
-    path: "/n1s1_2",
-    name: "n1s1_2",
-    component: n1s1_2,
-  },
-  {
-    path: "/n1s2_1",
-    name: "n1s2_1",
-    component: n1s2_1,
-  },
-  {
-    path: "/n1s3_1",
-    name: "n1s3_1",
-    component: n1s3_1,
-  },
-  {
-    path: "/user",
-    name: "user",
-    component: user,
-  },
-  {
-    path: "/n2s2_1",
-    name: "n2s2_1",
-    component: n2s2_1,
-  },
-  {
-    path: "/n3s1_1",
-    name: "n3s1_1",
-    component: n3s1_1,
+    path: "/auth",
+    name: "权限管理",
+    icon:<MenuUnfoldOutlined/>,
+    children: [
+      {
+        path: "/user",
+        name: "用户管理",
+        component: user,
+        icon:<UserOutlined/>,
+      },
+      {
+        path: "/menu",
+        name: "菜单管理",
+        component: menu,
+        icon:<MenuFoldOutlined/>,
+      },
+    ],
   },
 ];
 
