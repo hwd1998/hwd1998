@@ -3,6 +3,13 @@
  * @Description:   
  * @FilePath: \my-react-crm\src\views\doudian\tiktokList\index.js
  */
-export default function index() {
-  return <div>tiktokList</div>;
+import React, { Component } from 'react'
+// import test from '@/plugins/test'
+
+export default class index extends Component {
+  render() {
+    return (
+      <div className='container'>index</div>
+    )
+  }
 }

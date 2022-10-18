@@ -30,11 +30,6 @@ export default function MyLayout() {
       if (item.path === headerPath) setMenuIndex(index);
     });
   }, [headerPath]);
-  useEffect(()=>{
-    console.log('routers',routers)
-    console.log('routers',routers)
-
-  },[])
   return (
     <HashRouter>
       <Layout className='layout'>
@@ -131,8 +126,7 @@ export default function MyLayout() {
                   return <Route key={item.path} path={item.path} component={item.component} exact />;
                 }
               })}
-              <Redirect path='/' to='/n1s1_1' exact></Redirect>
-              {/* <Redirect path='*' to='/404'></Redirect> */}
+              <Redirect path='/' to='/auth/user' exact></Redirect>
             </Switch>
           </Content>
         </Layout>

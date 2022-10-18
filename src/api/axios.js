@@ -33,17 +33,15 @@ axios.interceptors.response.use(
       return;
     }
     if (status !== 200 || res.data.code === 0) {
-      console.log("adasdas");
       message.error(msg);
       return Promise.reject(new Error(msg));
     }
-    return res;
+    return Promise.resolve(res.data);
   },
   (error) => {
     NProgress.done();
     return Promise.reject(new Error(error));
   }
 );
-
 //配置拦截器
 export default axios;

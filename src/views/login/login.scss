@@ -6,8 +6,17 @@
   justify-content: center;
   align-items: center;
 }
-// #form {
-//   box-sizing: content-box;
-//   padding: 20px;
-//   background-color: #fff;
-// }
+
+
+.login-warp {
+  padding: 0 50px 50px 50px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.login-title{
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 100px;
+}
